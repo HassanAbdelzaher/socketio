@@ -22,7 +22,9 @@ var app = {
     // Application Constructor
     initialize: function() {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
-        var socket=io(server);
+        var socket=io(server,{
+            transports: ['websocket']
+          });
         socket.on('connect',this.onConnected.bind(this) );
         document.getElementById('connection').innerHTML="CONNECTing ...."+server;
     },
