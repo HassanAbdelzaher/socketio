@@ -20,8 +20,14 @@ var app = {
     // Application Constructor
     initialize: function() {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
+        var socket=io("http://localhost:3000");
+        socket.on('connect',this.onConnected.bind(this) );
     },
-
+    onConnected:function(socket){
+        console.log('connected to socket server');
+        alert('connected');
+        document.getElementById('connection').innerHTML="CONNECTED";
+    },
     // deviceready Event Handler
     //
     // Bind any cordova events here. Common events are:
