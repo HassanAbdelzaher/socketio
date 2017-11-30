@@ -17,12 +17,14 @@
  * under the License.
  */
 var server="http://41.38.109.17:1213";
+window.server=server;
 var app = {
     // Application Constructor
     initialize: function() {
         document.addEventListener('deviceready', this.onDeviceReady.bind(this), false);
         var socket=io(server);
         socket.on('connect',this.onConnected.bind(this) );
+        document.getElementById('connection').innerHTML="CONNECTing ...."+server;
     },
     onConnected:function(socket){
         console.log('connected to socket server');
